@@ -5,6 +5,11 @@
     "branch":      "m"
   },
   {
+    "repository": "SUB4S0NiK/device_qcom_common",
+    "target_path": "device/qcom/common",
+    "branch":      "m"
+  },
+  {
     "repository": "SUB4S0NiK/vendor_motorola_falcon",
     "target_path": "vendor/motorola/falcon",
     "branch":      "m"
