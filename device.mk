@@ -85,3 +85,6 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     wcnss_service
+
+$(call inherit-product-if-exists, hardware/qcom/msm8x26/msm8x26.mk)
+$(call inherit-product-if-exists, vendor/qcom/gpu/msm8x26/msm8x26-gpu-vendor.mk)
