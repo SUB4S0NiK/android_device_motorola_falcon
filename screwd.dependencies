@@ -1,0 +1,12 @@
+[
+  {
+    "repository": "SUB4S0NiK/vendor_motorola_falcon",
+    "target_path": "vendor/motorola/falcon",
+    "branch":      "m"
+  },
+  {
+    "repository": "SUB4S0NiK/kernel_motorola_msm8226",
+    "target_path": "kernel/motorola/msm8226",
+    "branch":      "m"
+  }
+]
