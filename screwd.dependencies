@@ -1,5 +1,10 @@
 [
   {
+    "repository": "SUB4S0NiK/device_qcom_msm8226",
+    "target_path": "device/qcom/msm8226",
+    "branch":      "m"
+  },
+  {
     "repository": "SUB4S0NiK/vendor_motorola_falcon",
     "target_path": "vendor/motorola/falcon",
     "branch":      "m"
