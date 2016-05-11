@@ -21,6 +21,7 @@
 -include vendor/motorola/falcon/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/motorola/falcon/include
+#TARGET_USE_ION_COMPAT := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := xt1031,xt1032,xt1033,xt1034,falcon_umts,falcon_umtsds,falcon_cdma,falcon_retuaws,falcon,falcon_gpe
@@ -57,7 +58,7 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 AUDIO_FEATURE_PCM_IOCTL_ENABLED := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
 TARGET_USES_QCOM_MM_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/falcon/bluetooth
@@ -110,7 +111,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/falcon
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/motorola/falcon/sepolicy
+#BOARD_SEPOLICY_DIRS += device/motorola/falcon/sepolicy
+
+TARGET_KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
