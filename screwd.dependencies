@@ -16,7 +16,7 @@
   },
   {
     "repository": "SUB4S0NiK/kernel_motorola_msm8226",
-    "target_path": "kernel/motorola/msm8226",
+    "target_path": "kernel",
     "branch":      "m"
   }
 ]
