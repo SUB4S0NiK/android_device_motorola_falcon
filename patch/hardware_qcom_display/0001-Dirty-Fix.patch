@@ -1,0 +1,95 @@
+From 022307982a14befb30291c2148ec42a193769997 Mon Sep 17 00:00:00 2001
+From: sub77 <sub77@ymail.com>
+Date: Sun, 7 Aug 2016 01:26:57 +0200
+Subject: [PATCH] Dirty Fix
+
+---
+ msm8226/libgralloc/ionalloc.cpp     |  2 +-
+ msm8226/liboverlay/overlay.cpp      | 16 ++++++++--------
+ msm8226/liboverlay/overlayMdp.h     |  2 +-
+ msm8226/liboverlay/overlayUtils.cpp |  2 +-
+ msm8226/liboverlay/overlayUtils.h   |  2 +-
+ 5 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/msm8226/libgralloc/ionalloc.cpp b/msm8226/libgralloc/ionalloc.cpp
+index 10a662d..91b9518 100644
+--- a/msm8226/libgralloc/ionalloc.cpp
++++ b/msm8226/libgralloc/ionalloc.cpp
+@@ -73,7 +73,7 @@ int IonAlloc::alloc_buffer(alloc_data& data)
+ 
+     ionAllocData.len = data.size;
+     ionAllocData.align = data.align;
+-    ionAllocData.heap_id_mask = data.flags & ~ION_SECURE;
++    //ionAllocData.heap_id_mask = data.flags & ~ION_SECURE;
+     ionAllocData.flags = data.uncached ? 0 : ION_FLAG_CACHED;
+     // ToDo: replace usage of alloc data structure with
+     //  ionallocdata structure.
+diff --git a/msm8226/liboverlay/overlay.cpp b/msm8226/liboverlay/overlay.cpp
+index de880c6..9620c6c 100644
+--- a/msm8226/liboverlay/overlay.cpp
++++ b/msm8226/liboverlay/overlay.cpp
+@@ -469,14 +469,14 @@ bool Overlay::displayCommit(const int& fd, const utils::Dim& lRoi,
+     struct mdp_display_commit info;
+     memset(&info, 0, sizeof(struct mdp_display_commit));
+     info.flags = MDP_DISPLAY_COMMIT_OVERLAY;
+-    info.l_roi.x = lRoi.x;
+-    info.l_roi.y = lRoi.y;
+-    info.l_roi.w = lRoi.w;
+-    info.l_roi.h = lRoi.h;
+-    info.r_roi.x = rRoi.x;
+-    info.r_roi.y = rRoi.y;
+-    info.r_roi.w = rRoi.w;
+-    info.r_roi.h = rRoi.h;
++    //info.l_roi.x = lRoi.x;
++    //info.l_roi.y = lRoi.y;
++    //info.l_roi.w = lRoi.w;
++    //info.l_roi.h = lRoi.h;
++    //info.r_roi.x = rRoi.x;
++    //info.r_roi.y = rRoi.y;
++    //info.r_roi.w = rRoi.w;
++    //info.r_roi.h = rRoi.h;
+ 
+     if(!mdp_wrapper::displayCommit(fd, info)) {
+         ALOGE("%s: commit failed", __func__);
+diff --git a/msm8226/liboverlay/overlayMdp.h b/msm8226/liboverlay/overlayMdp.h
+index cb8e057..36f602e 100644
+--- a/msm8226/liboverlay/overlayMdp.h
++++ b/msm8226/liboverlay/overlayMdp.h
+@@ -277,7 +277,7 @@ inline void MdpCtrl::setRotationFlags() {
+ }
+ 
+ inline uint8_t MdpCtrl::getPriority() const {
+-    return mOVInfo.priority;
++    //return mOVInfo.priority;
+ }
+ 
+ ///////    MdpData   //////
+diff --git a/msm8226/liboverlay/overlayUtils.cpp b/msm8226/liboverlay/overlayUtils.cpp
+index 0e063ab..187122c 100644
+--- a/msm8226/liboverlay/overlayUtils.cpp
++++ b/msm8226/liboverlay/overlayUtils.cpp
+@@ -155,7 +155,7 @@ int getMdpFormat(int format, bool tileEnabled)
+         case HAL_PIXEL_FORMAT_RGBX_8888:
+             return MDP_RGBX_8888_TILE;
+         case HAL_PIXEL_FORMAT_RGB_565:
+-            return MDP_RGB_565_TILE;
++            //return MDP_RGB_565_TILE;
+         case HAL_PIXEL_FORMAT_BGRA_8888:
+             return MDP_BGRA_8888_TILE;
+         case HAL_PIXEL_FORMAT_BGRX_8888:
+diff --git a/msm8226/liboverlay/overlayUtils.h b/msm8226/liboverlay/overlayUtils.h
+index 530377b..52f2e5c 100644
+--- a/msm8226/liboverlay/overlayUtils.h
++++ b/msm8226/liboverlay/overlayUtils.h
+@@ -490,7 +490,7 @@ inline const char* getFormatString(int format){
+     formats[MDP_XRGB_8888_TILE] = STR(MDP_XRGB_8888_TILE);
+     formats[MDP_XBGR_8888_TILE] = STR(MDP_XBGR_8888_TILE);
+     formats[MDP_BGRX_8888_TILE] = STR(MDP_BGRX_8888_TILE);
+-    formats[MDP_RGB_565_TILE] = STR(MDP_RGB_565_TILE);
++    //formats[MDP_RGB_565_TILE] = STR(MDP_RGB_565_TILE);
+     formats[MDP_IMGTYPE_LIMIT] = STR(MDP_IMGTYPE_LIMIT);
+ 
+     if(format < 0 || format >= MDP_IMGTYPE_LIMIT) {
+-- 
+1.9.1
+
