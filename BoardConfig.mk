@@ -113,8 +113,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/falcon
 
 #BOARD_SEPOLICY_DIRS += device/motorola/falcon/sepolicy
 
-TARGET_KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
-
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
